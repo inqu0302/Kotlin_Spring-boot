@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th ="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorator="@{/layout}"
+        >
+
+<script>
+
+</script>
+
+<section layout:fragment="content" class="buyer_write">
+    <form method="POST">
+        <div><label>고객 ID</label><input/></div>
+        <div><label>이름</label><input/></div>
+        <div><label>전화번호</label><input/></div>
+        <div><label>주소</label><input/></div>
+        <div><label>담당자명</label><input/></div>
+        <div><label>담당자연락처</label><input/></div>
+        <div class="btn_box"><button>저장</button><button>리스트로</button></div>
+    </form>
+</section>
