@@ -27,7 +27,8 @@ class ConfigData {
                     tel="063-123-2345",
                     manager="월매",
                     man_tel="010-123-2222",
-                    buy_total=14500)
+                    buy_total=14500
+                )
             )
     }
 }

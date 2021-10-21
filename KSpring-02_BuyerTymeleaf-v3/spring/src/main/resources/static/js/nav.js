@@ -1,4 +1,4 @@
-$(function()){
+$(function(){
 
     $("nav li").on("click", function(){
 
@@ -20,7 +20,7 @@ $(function()){
 
         let href = "/"
         if(text === "주문관리"){
-            href += "order"
+            href += "order/list"
         } else if (text === "결제관리"){
             href += "pay"
         } else if (text === "로그인"){
@@ -30,4 +30,4 @@ $(function()){
         location.href = `${href}`
 
     })
-}
+})

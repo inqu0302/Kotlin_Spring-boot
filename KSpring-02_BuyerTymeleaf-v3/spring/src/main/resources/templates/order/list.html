@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th ="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorator="@{/layout}"
+>
+
+<script>
+
+</script>
+
+<section layout:fragment="content">
+    <table class="buyer_list">
+        <thead>
+        <tr>
+            <th>SEQ</th>
+            <th>고객 ID</th>
+            <th>거래일시</th>
+            <th>상품명</th>
+            <th>단가</th>
+            <th>수량</th>
+            <th>매출액합계</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+            <td >001</td>
+            <td >B050</td>
+            <td >2021-10-21 10:56:12</td>
+            <td >아이폰13</td>
+            <td >1,500,000</td>
+            <td >5</td>
+            <td >7,500,00</td>
+        </tr>
+        <tr >
+            <td >002</td>
+            <td >B045</td>
+            <td >2021-10-21 09:15:30</td>
+            <td >아이폰13 PRO</td>
+            <td >1,700,000</td>
+            <td >10</td>
+            <td >17,000,000</td>
+        </tr>
+
+        </tbody>
+    </table>
+</section>
