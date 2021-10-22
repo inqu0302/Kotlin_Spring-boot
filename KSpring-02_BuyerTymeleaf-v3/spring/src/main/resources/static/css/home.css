@@ -45,32 +45,7 @@ nav li:hover{
     width: 80%;
 }
 
-.buyer_list{
-    border-collapse: collapse;
-    border-top: 3px double #999;
-    white-space: nowrap;
-    margin: 5px auto;
-    text-align: center;
-    width: 90%
-}
 
-.buyer_list th,
-.buyer_list td {
-    padding: 0.3rem 0.5rem;
-}
-
-.buyer_list th{
-    background-color: #666;
-    color: white;
-}
-
-.buyer_list tr{
-    border-bottom: 1px solid #999;
-}
-
-.buyer_list tr:last-of-type {
-    border-bottom: 3px double #999;
-}
 
 footer{
     background-color: blue;

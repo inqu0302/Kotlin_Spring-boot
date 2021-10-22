@@ -1,0 +1,39 @@
+table.list{
+    border-collapse: collapse;
+    border-top: 3px double #999;
+    white-space: nowrap;
+    margin: 5px auto;
+    text-align: center;
+    width: 90%
+}
+
+table.list th,
+table.list td {
+    padding: 0.3rem 0.5rem;
+}
+
+table.list th{
+    background-color: #666;
+    color: white;
+}
+
+table.list tr{
+    border-bottom: 1px solid #999;
+}
+
+table.list tr:last-of-type {
+    border-bottom: 3px double #999;
+}
+
+table.list tr:nth-of-type(even){
+    background-color:#ddd;
+}
+
+table.list tr:nth-of-type(n+1):hover{
+    cursor:pointer;
+    background-color:#ddd;
+}
+
+table.order_list tr:nth-of-type(n+1):hover{
+    background-color:orange !important;
+}

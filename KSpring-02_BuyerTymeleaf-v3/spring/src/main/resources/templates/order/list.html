@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th ="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
-      layout:decorator="@{/layout}"
+      layout:decorator="~{/layout}"
 >
 
 <script>
@@ -10,12 +10,11 @@
 </script>
 
 <section layout:fragment="content">
-    <table class="buyer_list">
+    <table class="list order_list">
         <thead>
         <tr>
             <th>SEQ</th>
             <th>고객 ID</th>
-            <th>거래일시</th>
             <th>상품명</th>
             <th>단가</th>
             <th>수량</th>
@@ -23,25 +22,22 @@
         </tr>
         </thead>
         <tbody>
-        <tr >
-            <td >001</td>
-            <td >B050</td>
-            <td >2021-10-21 10:56:12</td>
-            <td >아이폰13</td>
-            <td >1,500,000</td>
-            <td >5</td>
-            <td >7,500,00</td>
+        <tr class="order_tr" th:each="SALE:${SALES}" th:data-id="${SALE.seq}">
+            <td th:text="${SALE.seq}">SEQ</td>
+            <td th:text="${SALE.userid}">userid</td>
+            <td th:text="${SALE.pname}">상품명</td>
+            <td th:text="${SALE.amt}">단가</td>
+            <td th:text="${SALE.qty}">수량</td>
+            <td th:text="${SALE.total}">주문금액</td>
         </tr>
-        <tr >
-            <td >002</td>
-            <td >B045</td>
-            <td >2021-10-21 09:15:30</td>
-            <td >아이폰13 PRO</td>
-            <td >1,700,000</td>
-            <td >10</td>
-            <td >17,000,000</td>
-        </tr>
-
         </tbody>
     </table>
+    <div class="btn_box"><button class="btn_insert">주문등록</button></div>
+    <script>
+    $(function(){
+        $("button.btn_insert").on("click",function(){
+            location.href = "/order/insert"
+        })
+     })
+    </script>
 </section>

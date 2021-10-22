@@ -24,21 +24,25 @@ data class Sales(
     @Id
     @Column(columnDefinition = "BIGINT")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var seq: Long,
-    var date : String,
-    var time : String,
-    var pname : String,
-    var qty : Int,
-    var amt : Int,
-    var total : Int,
+    var seq: Long? = null, //?=null 공백인 생성자 값이없어도 생성이 가능하다
+    var userid : String? = null,
+    var date : String? = null,
+    var time : String? = null,
+    var pname : String? = null,
+    var qty : Int? = null,
+    var amt : Int? = null,
+    var total : Int? = null,
 
     // 데이터에 특별하게 Date(날짜, 시간형) 값을 사용하고 싶을때
+    @Transient // 테이블 생성시 칼럼에 추가하지 않는다
     @Temporal(TemporalType.DATE)
-    var date1: Date,
+    var date1: Date? = null,
 
+    @Transient
     @Temporal(TemporalType.TIME)
-    var time1 : Date,
+    var time1 : Date? = null,
 
+    @Transient
     @Temporal(TemporalType.TIMESTAMP)
-    var date_time: Date
+    var date_time: Date? = null
 )

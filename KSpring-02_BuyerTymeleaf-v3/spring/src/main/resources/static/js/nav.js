@@ -18,9 +18,9 @@ $(function(){
         }
         alert(JSON.stringify(tagInfo))
 
-        let href = "/"
+        let href = `${rootPath}/`
         if(text === "주문관리"){
-            href += "order/list"
+            href += "order"
         } else if (text === "결제관리"){
             href += "pay"
         } else if (text === "로그인"){
