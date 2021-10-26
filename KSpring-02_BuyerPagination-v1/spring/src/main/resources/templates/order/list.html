@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th ="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorator="~{/layout}"
+>
+
+
+<section layout:fragment="content">
+    <table class="list order_list">
+        <thead>
+        <tr>
+            <th>SEQ</th>
+            <th>고객 ID</th>
+            <th>상품명</th>
+            <th>단가</th>
+            <th>수량</th>
+            <th>매출액합계</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="order_tr" th:each="SALE:${SALES}" th:data-id="${SALE.seq}">
+            <td th:text="${SALE.seq}">SEQ</td>
+            <td th:text="${SALE.userid}">userid</td>
+            <td th:text="${SALE.pname}">상품명</td>
+            <td th:text="${SALE.amt}">단가</td>
+            <td th:text="${SALE.qty}">수량</td>
+            <td th:text="${SALE.total}">주문금액</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="nextPage">더 보기</div>
+    <div class="btn_box"><button class="btn_insert">주문등록</button></div>
+    <script>
+    $(function(){
+
+        let currentPage = 0
+        let lastPage = false
+
+        $("button.btn_insert").on("click",function(){
+            location.href = "/order/insert"
+        })
+
+        $("div.nextPage").on("click", function (){
+
+            if(lastPage){
+                alert("마지막 페이지입니다")
+                return false
+            }
+
+            $.ajax({
+                url : `${rootPath}/order/sub_page`,
+                data : {page: ++currentPage},
+                method : "GET"
+            })
+            .done(function (result){
+                lastPage = result.last
+                $("table.order_list tbody").append(result)
+            })
+
+        })
+     })
+    </script>
+</section>

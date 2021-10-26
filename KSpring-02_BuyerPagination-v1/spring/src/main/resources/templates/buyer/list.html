@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th ="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+    layout:decorator="~{/layout}">
+
+<section layout:fragment="content" class="buyer_list">
+    <table class="list buyer_list">
+        <thead>
+        <tr>
+            <th>고객ID</th>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>주소</th>
+            <th>담당자명</th>
+            <th>담당자연락처</th>
+            <th>매출액합계(만원)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="BUYER : ${BUYERS}" th:data-id="${BUYER.userid}">
+            <td th:text="${BUYER.userid}">B001</td>
+            <td th:text="${BUYER.name}">롯데상사</td>
+            <td th:text="${BUYER.tel}">02-222-9999</td>
+            <td th:text="${BUYER.address}">서울시 영등포구</td>
+            <td th:text="${BUYER.manager}">홍길동</td>
+            <td th:text="${BUYER.man_tel}">010-9999-8766</td>
+            <td th:text="${BUYER.buy_total}">91,000</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <th:block th:replace="~{/fragment/page_nav :: pageNav(${BUYERS})}"></th:block>
+    <div class="nextPage">더 보기</div>
+    <div class="btn_box"><button class="btn_insert">고객등록</button></div>
+    <script>
+    $(function(){
+
+        let currentPage = 0
+        let lastPage = false
+
+        $("button.btn_insert").on("click",function(){
+            location.href = `${rootPath}/buyer/insert`
+        })
+
+        $("div.nextPage").on("click",function(){
+
+            if(lastPage){
+                alert("끝 페이지 입니다")
+                return false
+            }
+
+            /**
+             * project 에 ontext-path 가 설정되어 있을때는
+             * ${rootPath}/buyer/sub-page 와 같이 사용해도 문제가 없다
+             *
+             * context-path 가 설정이 되어있지 않을때
+             * ${rootPath}buyer/sub_page
+             */
+
+            // jQuery.ajax
+            $.ajax({
+                url : `${rootPath}/buyer/sub_page`,
+                data : {page: ++currentPage},
+                method: "GET"
+            })
+            .done(function (result){
+                lastPage = result.last
+                $("table.buyer_list tbody").append(result)
+            })
+        })
+     })
+
+    </script>
+</section>
+
+</html>
