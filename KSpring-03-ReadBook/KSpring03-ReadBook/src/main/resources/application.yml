@@ -1,0 +1,15 @@
+spring:
+  config:
+    import: >
+      optional:classpath:app-DBMS.yml,
+      classpath:app-jpa.yml
+
+  mvc:
+    static-path-pattern: /static/**
+  web:
+    resources:
+      static-locations: classpath:static/
+      add-mappings: true
+
+  #logger Setting
+  output.ansi.enabled: ALWAYS

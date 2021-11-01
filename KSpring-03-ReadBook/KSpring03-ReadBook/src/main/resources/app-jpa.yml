@@ -1,0 +1,15 @@
+#JPA 설정
+spring:
+  jpa:
+    database-plattform: org.hiberante.dialect.MySQL8Dialect
+    database: mysql
+
+    # batch transaction
+    properties.hibernate:
+      jdbc.batch_size: 50
+      order_insert: true
+      order_updates: true
+
+      # JPA Logging
+      format_sql: true
+    show-sql: true

@@ -1,0 +1,48 @@
+div.header{
+    border: 1px solid gray;
+    background-color: gray;
+    width: 90%;
+    min-height: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px auto;
+}
+
+section.write_input{
+    width: 80%;
+    margin: auto;
+}
+
+section.write_input ul{
+    list-style: none;
+}
+
+section.write_input input{
+    padding:  1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+div.btn_box{
+    margin-left: auto;
+}
+
+div.btn_box button{
+    padding: 13px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+
+.btn_save{
+    background-color: deepskyblue;
+}
+
+.btn_reset{
+    background-color: orangered;
+}
+
+.btn_list{
+    background-color: orange;
+}
